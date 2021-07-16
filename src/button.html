@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Button Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/default.min.css">
+</head>
+<body>
+  <article class="markdown-body">
+    <h1>Button Component</h1>
+    <h2>Default</h2>
+    <p>Default style of button, by adding <code>button</code> class to <code>&lt;button/&gt;</code> or <code>&lt;a/&gt;</code> tag.</p>
+    <pre><code class="language-html">&lt;button class=&quot;button&quot;&gt;Title&lt;/button&gt;</code></pre>
+    <div class="demo-block">
+      <button class="button">Title</button>
+    </div>
+    <pre><code class="language-html">&lt;a class=&quot;button&quot;&gt;Title&lt;/a&gt;</code></pre>
+    <div class="demo-block">
+      <a class="button">Title</a>
+    </div>
+  </article>
+  <style>
+    html {
+      font-size: 16px;
+    }
+    article {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    .demo-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem 0;
+      padding: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .button {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>
