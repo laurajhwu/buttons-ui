@@ -30,17 +30,15 @@ h1 {
 .demo-image {
   width: 200px;
   position: absolute;
-  left: 40px;
-  bottom: 44px;
+  right: 150px;
+  top: 350px;
 }
 
 .demo-label {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 20px 10px;
   font-weight: 600;
-}
-
-.indent {
-  visibility: hidden;
-  width: 10px;
 }

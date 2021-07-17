@@ -2,8 +2,6 @@ import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import CoffeeImg from "../images/coffee.jpg";
 import FullScreen from "../Buttons/FullScreen";
-import { Indent } from "./styles";
-import outdent from "outdent";
 
 const theme = {
   button: {
@@ -21,24 +19,6 @@ const theme = {
   },
 };
 
-const text = `
-  const theme = {
-    button: {
-    marginTop: "10px",
-    //button styles
-  },
-  icon: {
-    //icon styling
-  },
-  text: {
-    //text styling
-  },
-  target: {
-    //target styling
-  },
-};
-`;
-
 export default function Fullscreen() {
   return (
     <Display
@@ -47,12 +27,16 @@ export default function Fullscreen() {
         <>
           Full Screen Button containing a <code>target</code> property that
           takes a callback to reference target element.
+          <br />
+          <br />
+          <em>
+            *click non-disabled buttons to see coffee image go full screen
+          </em>
         </>
       }
       code={() => (
         <code className="language-js">
-          {`
-            //Customize Styles
+          {`//Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",
