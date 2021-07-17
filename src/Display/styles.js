@@ -51,7 +51,15 @@ export const DemoBlock = styled.div`
   border-radius: 3px;
 `;
 
-export const Indent = styled.div`
-  width: 50px;
-  margin-left: 10px;
+export const File = styled.div`
+  width: 120px;
+  margin-right: 20px;
+  position: absolute;
+  left: 100px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  & > div {
+    font-weight: 600;
+  }
 `;
