@@ -18,9 +18,9 @@ export default function Upload(props) {
   return (
     <Button theme={theme?.button} disabled={disabled}>
       <Label htmlFor={`upload-file${id}`} theme={theme?.label}>
-        {iconStart && <Icon src={iconStart} theme={theme?.icon} />}
+        {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
         <Text theme={theme?.text}>{text}</Text>
-        {iconEnd && <Icon src={iconEnd} theme={theme?.icon} />}
+        {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
         <FileInput
           type="file"
           accept={accept || "*"}

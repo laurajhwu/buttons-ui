@@ -25,7 +25,8 @@ export const Label = styled.label`
 `;
 
 export const Icon = styled.img`
-  margin-left: 12px;
+  margin-left: ${(props) => (props.type === "start" ? 0 : "12px")};
+  margin-right: ${(props) => (props.type === "end" ? 0 : "12px")};
   width: 18px;
   ${(props) => ({ ...(props.theme || {}) })}
 `;

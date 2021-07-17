@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
-import Upload from "../Buttons/Upload";
+import Select from "../Buttons/Select";
 import { File } from "./styles";
 
 const theme = {
@@ -18,7 +18,19 @@ const theme = {
   text: {
     //text styling
   },
+  options: {
+    //options styling
+    "& option": {
+      //individual option styling
+    },
+  },
 };
+
+const options = [
+  { content: "English", key: "eng", value: "english" /* optional */ },
+  { content: "Chinese", key: "ch", value: "chinese" /* optional */ },
+  { content: "French", key: "fr", value: "french" /* optional */ },
+];
 
 export default function UploadBtn() {
   const [fileName, setFileName] = useState("");
@@ -104,30 +116,22 @@ export default function UploadBtn() {
       </File>
       <label className="demo-label">
         Default
-        <Upload
-          text="Upload"
-          iconEnd={PlaceholderIcon}
+        <Select
+          text="Language"
+          iconStart={PlaceholderIcon}
           theme={theme}
           onChange={handleOnChange}
+          options={options}
         />
       </label>
       <label className="demo-label">
         Disabled
-        <Upload
-          text="Upload"
-          iconEnd={PlaceholderIcon}
+        <Select
+          text="Language"
+          iconStart={PlaceholderIcon}
           disabled={true}
           theme={theme}
-        />
-      </label>
-      <label className="demo-label">
-        Upload only images
-        <Upload
-          text="Upload"
-          iconEnd={PlaceholderIcon}
-          accept="image/*"
-          theme={theme}
-          onChange={handleOnChange}
+          options={options}
         />
       </label>
     </Display>
