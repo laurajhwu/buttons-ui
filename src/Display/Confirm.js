@@ -75,6 +75,10 @@ export default function NextBtn() {
         Disabled
         <Confirm text="Confirm" disabled={true} theme={theme} />
       </label>
+      <label className="demo-label">
+        Disabled on confirm
+        <Confirm text="Confirm" theme={theme} disableOnConfirm={true} />
+      </label>
     </Display>
   );
 }
