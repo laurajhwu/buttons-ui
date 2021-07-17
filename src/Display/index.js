@@ -4,6 +4,7 @@ import Upload from "./Upload";
 import Select from "./Select";
 import Next from "./Next";
 import IconBtn from "./IconBtn";
+import Confirm from "./Confirm";
 
 export default function Display(props) {
   return (
@@ -13,6 +14,7 @@ export default function Display(props) {
       <Select />
       <Next />
       <IconBtn />
+      <Confirm />
     </>
   );
 }

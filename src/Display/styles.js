@@ -43,6 +43,7 @@ export const Code = styled.pre`
 
 export const DemoBlock = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
