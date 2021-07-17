@@ -5,12 +5,12 @@ import Select from "../Buttons/Select";
 import { File } from "./styles";
 
 const theme = {
+  select: {
+    //select styling
+  },
   button: {
     marginTop: "10px",
-    //button styles
-  },
-  label: {
-    //label styling
+    //button styling
   },
   icon: {
     //icon styling
@@ -24,6 +24,9 @@ const theme = {
       //individual option styling
     },
   },
+  arrow: {
+    //dropdown arrow styling
+  },
 };
 
 const options = [
@@ -36,7 +39,7 @@ const options = [
 export default function UploadBtn() {
   return (
     <Display
-      title="Upload Button"
+      title="Select Button"
       description={
         <>
           Upload Button constructed from html <code>&lt;input&gt;</code> tag
@@ -108,9 +111,22 @@ export default function UploadBtn() {
       )}
     >
       <label className="demo-label">
-        Default
+        Default Settings
+        <Select iconStart={PlaceholderIcon} theme={theme} options={options} />
+      </label>
+      <label className="demo-label">
+        No auto hide
         <Select
-          text="Language"
+          iconStart={PlaceholderIcon}
+          theme={theme}
+          options={options}
+          hideOnSelect={false}
+        />
+      </label>
+      <label className="demo-label">
+        Set default value
+        <Select
+          defaultValue={"chinese"}
           iconStart={PlaceholderIcon}
           theme={theme}
           options={options}

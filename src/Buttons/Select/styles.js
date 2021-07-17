@@ -14,6 +14,7 @@ export const Button = styled(ButtonBase)`
   &:active {
     background-color: #2d4f57;
   }
+  position: relative;
   ${(props) => ({ ...(props.theme || {}) })};
 `;
 
@@ -27,8 +28,9 @@ export const Label = styled.label`
 `;
 
 export const Icon = styled.img`
-  margin-left: ${(props) => (props.type === "start" ? 0 : "12px")};
-  margin-right: ${(props) => (props.type === "end" ? 0 : "12px")};
+  position: absolute;
+  left: ${(props) => (props.type === "end" ? "" : "16px")};
+  right: ${(props) => (props.type === "start" ? "" : "16px")};
   width: 18px;
   ${(props) => ({ ...(props.theme || {}) })}
 `;
@@ -36,6 +38,7 @@ export const Icon = styled.img`
 export const Text = styled.span`
   display: inline-block;
   vertical-align: middle;
+  margin-left: 12px;
   ${(props) => ({ ...(props.theme || {}) })}
 `;
 

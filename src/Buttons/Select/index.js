@@ -11,14 +11,16 @@ export default function SelectBtn(props) {
     theme,
     onSelect,
     options,
-    settings,
+    hideOnSelect,
   } = props;
   const [value, setValue] = useState();
   const [show, setShow] = useState(false);
 
   function handleSelect(event) {
     setValue(event.target.innerHTML);
-    settings?.hideOnSelect && setShow(false);
+    if (!hideOnSelect && hideOnSelect !== undefined) {
+      setShow(false);
+    }
   }
 
   function handleClickButton(event) {
@@ -30,7 +32,8 @@ export default function SelectBtn(props) {
     if (options) {
       setValue(
         options.find(
-          (option) => defaultValue === (option.value || option.content)
+          (option) =>
+            defaultValue === option.value || defaultValue === option.content
         )?.content || options[0].content
       );
     }
@@ -52,7 +55,7 @@ export default function SelectBtn(props) {
         {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
         <Text theme={theme?.text}>{value}</Text>
         {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
-        <Arrow />
+        <Arrow theme={theme?.arrow} />
       </Button>
       <Options theme={theme?.options} show={show}>
         {options.map((opt) => (
