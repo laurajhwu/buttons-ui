@@ -9,6 +9,7 @@ body {
 
 body * {
   line-height: 24px;
+  box-sizing: border-box;
 }
 
 code {

@@ -1,8 +1,6 @@
-import { useState } from "react";
 import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import Select from "../Buttons/Select";
-import { File } from "./styles";
 
 const theme = {
   select: {
