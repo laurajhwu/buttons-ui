@@ -3,7 +3,7 @@ import Display from "./Display";
 function App() {
   return (
     <div className="App">
-      <h1>Button Components</h1>
+      <h1>React Button Components</h1>
       <Display />
     </div>
   );
