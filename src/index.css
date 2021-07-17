@@ -47,3 +47,11 @@ h1 {
   margin: 20px 10px;
   font-weight: 600;
 }
+
+#reset {
+  color: blue;
+}
+
+#reset:hover {
+  cursor: pointer;
+}
