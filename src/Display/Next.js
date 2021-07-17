@@ -20,35 +20,10 @@ const theme = {
 export default function NextBtn() {
   return (
     <Display
-      title="Upload Button"
+      title="Next Button"
       description={
         <>
-          Upload Button constructed from html <code>&lt;input&gt;</code> tag
-          that accepts all or some file types - please refer{" "}
-          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">
-            here
-          </a>{" "}
-          for customization.
-          <br />
-          <ul>
-            <li>
-              <code>onChange</code>: returns <code>event.target.files[0]</code>{" "}
-              as an argument, if no file is found, then the function throws an
-              error and does not execute.
-            </li>
-            <br />
-            <li>
-              <code>icon</code>, <code>text</code>, and <code>input</code>{" "}
-              elements are wrapped within a <code>&lt;label&gt;</code> tag.{" "}
-              <code>input</code> display is set to <code>none</code> for styling
-              purposes.
-            </li>
-            <br />
-            <li>
-              <code>input</code> id is combined with a randomly generated unique
-              identifier for labeling precision.
-            </li>
-          </ul>
+          Simple next button with styled effects.
           <br />
         </>
       }
@@ -60,8 +35,8 @@ export default function NextBtn() {
                 \u00A0\u00A0marginTop: "10px",
                 \u00A0\u00A0//button styles
               \u00A0},
-               \u00A0label: {
-                 \u00A0 \u00A0//label styling
+               \u00A0arrow: {
+                 \u00A0 \u00A0//arrow styling
                \u00A0},
               \u00A0icon: {
                 \u00A0\u00A0//icon styling
@@ -71,21 +46,13 @@ export default function NextBtn() {
               \u00A0},
             };
             ...
-            const [fileName, setFileName] = useState("");
-
-            function handleOnChange(file) {
-            \u00A0//file === event.target.files[0]
-            \u00A0setFileName(file.name);
-            }
-            ...
             //Render Button
             return (
-           \u00A0<Upload
-            \u00A0\u00A0text="Upload"
-            \u00A0\u00A0iconEnd={PlaceholderIcon}
+           \u00A0<Next
+            \u00A0\u00A0text="Next"
             \u00A0\u00A0theme={theme}
-            \u00A0\u00A0accept="image/*"
-            \u00A0\u00A0onChange={handleOnChange}
+            \u00A0\u00A0disabled={false}
+            \u00A0\u00A0onClick={(event) => {//do something}}
             \u00A0/>
           );`}
         </code>

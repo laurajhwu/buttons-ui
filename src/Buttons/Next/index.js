@@ -10,7 +10,7 @@ export default function Next(props) {
       {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
       <Text theme={theme?.text}>{text}</Text>
       {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
-      <Arrow />
+      <Arrow theme={theme?.arrow} />
     </Button>
   );
 }

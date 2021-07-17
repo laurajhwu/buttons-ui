@@ -53,6 +53,7 @@ export const Select = styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+
   ${(props) => ({ ...(props.theme || {}) })};
 `;
 
@@ -69,6 +70,9 @@ export const Options = styled.div`
   top: 100%;
   max-height: 120px;
   overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   & > option {
     padding: 5px 10px;
     color: #38636d;
