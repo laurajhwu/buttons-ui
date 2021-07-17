@@ -1,15 +1,10 @@
 import React from "react";
+import Fullscreen from "./FullScreen";
 
-import { Article, Title, Description, Code, DemoBlock } from "./styles";
-
-export default function Layout(props) {
-  const { title, description, code, children } = props;
+export default function Display(props) {
   return (
-    <Article>
-      <Title>{title}</Title>
-      <Description>{description}</Description>
-      <Code>{code()}</Code>
-      <DemoBlock>{children}</DemoBlock>
-    </Article>
+    <>
+      <Fullscreen />
+    </>
   );
 }

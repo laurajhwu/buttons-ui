@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const Article = styled.article`
   max-width: 1024px;
   margin: 0 auto;
+  & code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  }
 `;
 
 export const Title = styled.h2`
@@ -22,8 +30,16 @@ export const Code = styled.pre`
   line-height: 1.45;
   background-color: #f6f8fa;
   border-radius: 3px;
+  white-space: pre-line;
   & code {
     background-color: initial;
+    & * {
+      display: inline-block;
+      /* &.hljs-attr,
+      &.hljs-comment {
+        padding-left: 10px;
+      } */
+    }
   }
 `;
 
@@ -35,4 +51,9 @@ export const DemoBlock = styled.div`
   padding: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;
+`;
+
+export const Indent = styled.div`
+  width: 50px;
+  margin-left: 10px;
 `;
