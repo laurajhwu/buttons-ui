@@ -46,9 +46,10 @@ export default function UploadBtn() {
             </li>
             <br />
             <li>
-              Both the <code>icon</code> and <code>input</code> element are
-              wrapped within a <code>&lt;label&gt;</code> tag.{" "}
-              <code>input</code> display is set to none for styling purposes.
+              <code>icon</code>, <code>text</code>, and <code>input</code>{" "}
+              elements are wrapped within a <code>&lt;label&gt;</code> tag.{" "}
+              <code>input</code> display is set to <code>none</code> for styling
+              purposes.
             </li>
             <br />
             <li>
