@@ -31,14 +31,12 @@ export const Code = styled.pre`
   background-color: #f6f8fa;
   border-radius: 3px;
   white-space: pre-line;
+  height: 300px;
   & code {
     background-color: initial;
+    font-size: 0.9rem;
     & * {
       display: inline-block;
-      /* &.hljs-attr,
-      &.hljs-comment {
-        padding-left: 10px;
-      } */
     }
   }
 `;
