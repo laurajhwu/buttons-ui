@@ -16,7 +16,8 @@ export const Button = styled(ButtonBase)`
 `;
 
 export const Icon = styled.img`
-  margin-right: 12px;
+  margin-left: ${(props) => (props.type === "start" ? 0 : "12px")};
+  margin-right: ${(props) => (props.type === "end" ? 0 : "12px")};
   width: 18px;
   ${(props) => ({ ...(props.theme || {}) })}
 `;

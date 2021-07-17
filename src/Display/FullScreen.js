@@ -71,7 +71,7 @@ export default function Fullscreen() {
         Default
         <FullScreen
           text="Full Screen"
-          icon={PlaceholderIcon}
+          iconStart={PlaceholderIcon}
           theme={theme}
           target={(ref) => (
             <img src={CoffeeImg} ref={ref} className="demo-image" />
@@ -82,7 +82,7 @@ export default function Fullscreen() {
         Disabled
         <FullScreen
           text="Full Screen"
-          icon={PlaceholderIcon}
+          iconStart={PlaceholderIcon}
           disabled={true}
           theme={theme}
           target={(ref) => (
