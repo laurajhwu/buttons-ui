@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Display from "./BaseDisplay";
 import Confirm from "../Buttons/Confirm";
 
@@ -17,14 +18,46 @@ const theme = {
   },
 };
 
-export default function NextBtn() {
+export default function ConfirmBtn() {
+  const [isReset, setIsReset] = useState(false);
+  const [disableOnConfirm, setDisableOnConfirm] = useState(true);
+
+  function handleOnClick() {
+    setIsReset(true);
+  }
+
+  function handleReset() {
+    setDisableOnConfirm(false);
+    setIsReset(false);
+    window.setTimeout(() => setDisableOnConfirm(true), 0);
+  }
+
   return (
     <Display
-      title="Next Button"
+      title="Confirm Button"
       description={
         <>
-          Simple next button with styled effects.
+          Confirm button that consists of small, medium (default), and large
+          sizes.
           <br />
+          <ul>
+            <li>
+              <code>size</code>: accepts values of <code>small</code>,{" "}
+              <code>medium</code>, <code>large</code>
+            </li>
+            <br />
+            <li>
+              <code>disableOnConfirm</code>: accepts a <code>boolean</code>{" "}
+              value. If <code>true</code>, the button will be disabled once
+              clicked to prevent multiple clicks.
+              <br />
+              <br />
+              Once <code>disableOnConfirm</code> is set to <code>false</code>,
+              the button will become clickable again.
+              <strong>(try demo below)</strong>
+            </li>
+            <br />
+          </ul>
         </>
       }
       code={() => (
@@ -46,14 +79,34 @@ export default function NextBtn() {
               \u00A0},
             };
             ...
+            //Demo on how to use disableOnConfirm
+            const [isReset, setIsReset] = useState(false);
+            const [disableOnConfirm, setDisableOnConfirm] = useState(true);
+
+            function handleOnClick() {
+              \u00A0setIsReset(true);
+            }
+
+            function handleReset() {
+               \u00A0setDisableOnConfirm(false);
+               \u00A0setIsReset(false);
+               \u00A0window.setTimeout(() => setDisableOnConfirm(true), 0);
+            }
+            ...
             //Render Button
             return (
-           \u00A0<Next
-            \u00A0\u00A0text="Next"
+           \u00A0<Confirm
+            \u00A0\u00A0text="Confirm"
             \u00A0\u00A0theme={theme}
             \u00A0\u00A0disabled={false}
-            \u00A0\u00A0onClick={(event) => {//do something}}
+            \u00A0\u00A0onClick={handleOnClick}
+            \u00A0\u00A0disableOnConfirm={disableOnConfirm}
             \u00A0/>
+            \u00A0{isReset && (
+              \u00A0\u00A0<span id="reset" onClick={handleReset}>
+                \u00A0\u00A0\u00A0reset
+              \u00A0</span>
+            \u00A0)}
           );`}
         </code>
       )}
@@ -77,8 +130,18 @@ export default function NextBtn() {
       </label>
       <label className="demo-label">
         Disabled on confirm
-        <Confirm text="Confirm" theme={theme} disableOnConfirm={true} />
+        <Confirm
+          text="Confirm"
+          theme={theme}
+          disableOnConfirm={disableOnConfirm}
+          onClick={handleOnClick}
+        />
       </label>
+      {isReset && (
+        <span id="reset" onClick={handleReset}>
+          reset
+        </span>
+      )}
     </Display>
   );
 }

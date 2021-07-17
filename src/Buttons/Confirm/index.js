@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button, Icon, Text, Arrow } from "./styles";
 
@@ -19,6 +19,12 @@ export default function Confirm(props) {
     disableOnConfirm && setDisableConfirm(true);
     onClick && onClick(event);
   }
+
+  useEffect(() => {
+    if (disableOnConfirm === false) {
+      setDisableConfirm(false);
+    }
+  }, [disableOnConfirm]);
 
   return (
     <Button
