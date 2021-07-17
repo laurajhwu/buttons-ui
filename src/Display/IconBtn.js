@@ -10,47 +10,41 @@ const theme = {
   icon: {
     //icon styling
   },
-  text: {
-    //text styling
-  },
 };
 
 export default function IconBtnMain() {
   return (
     <Display
-      title="Next Button"
+      title="Icon Button"
       description={
         <>
-          Simple next button with styled effects.
+          Button based on icons. Contains a <code>circle</code> property, that
+          accepts a <code>boolean</code> , to convert button to a circle.
           <br />
         </>
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import PlaceholderIcon from "../images/placeholder.svg";
+          ...
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",
                 \u00A0\u00A0//button styles
               \u00A0},
-               \u00A0arrow: {
-                 \u00A0 \u00A0//arrow styling
-               \u00A0},
               \u00A0icon: {
                 \u00A0\u00A0//icon styling
-              \u00A0},
-              \u00A0text: {
-                \u00A0\u00A0//text styling
               \u00A0},
             };
             ...
             //Render Button
             return (
-           \u00A0<Next
-            \u00A0\u00A0text="Next"
+           \u00A0<IconBtn
             \u00A0\u00A0theme={theme}
             \u00A0\u00A0disabled={false}
-            \u00A0\u00A0onClick={(event) => {//do something}}
+            \u00A0\u00A0circle={false}  
+            \u00A0\u00A0icon={PlaceholderIcon}
             \u00A0/>
           );`}
         </code>
