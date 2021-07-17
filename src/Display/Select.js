@@ -27,17 +27,13 @@ const theme = {
 };
 
 const options = [
+  { content: "Language", key: "all", value: "select" /* optional */ },
   { content: "English", key: "eng", value: "english" /* optional */ },
   { content: "Chinese", key: "ch", value: "chinese" /* optional */ },
   { content: "French", key: "fr", value: "french" /* optional */ },
 ];
 
 export default function UploadBtn() {
-  const [fileName, setFileName] = useState("");
-
-  function handleOnChange(file) {
-    setFileName(file.name);
-  }
   return (
     <Display
       title="Upload Button"
@@ -111,16 +107,12 @@ export default function UploadBtn() {
         </code>
       )}
     >
-      <File>
-        File Name: <div>{fileName}</div>
-      </File>
       <label className="demo-label">
         Default
         <Select
           text="Language"
           iconStart={PlaceholderIcon}
           theme={theme}
-          onChange={handleOnChange}
           options={options}
         />
       </label>

@@ -6,6 +6,7 @@ export const Button = styled(ButtonBase)`
   background-color: ${(props) => (props.disabled ? "#f7f7f7" : "#38636D")};
   color: ${(props) => (props.disabled ? "#9b9b9b" : "#B9EFE7")};
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
+  width: 180px;
   &:hover {
     background-color: ${(props) =>
       props.disabled ? "#f7f7f7 !important" : "#719198"};
@@ -45,7 +46,11 @@ export const Arrow = styled(ArrowIosDownwardOutline)`
 `;
 
 export const Select = styled.div`
-  ${(props) => ({ ...(props.theme || {}) })}
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  ${(props) => ({ ...(props.theme || {}) })};
 `;
 
 export const Options = styled.div`
@@ -55,13 +60,21 @@ export const Options = styled.div`
   width: 90%;
   margin: 0 auto;
   font-size: 1rem;
-  display: ${(props) => (props.show ? "inline-block" : "none")};
-  & option {
+  background-color: white;
+  display: ${(props) => (props.show ? "block" : "none")};
+  position: absolute;
+  top: 100%;
+  max-height: 120px;
+  overflow: auto;
+  & > option {
     padding: 5px 10px;
     color: #38636d;
     &:hover {
       cursor: pointer;
       background-color: #cdf3ee;
+    }
+    &:last-child {
+      border-radius: 0 0 10px 10px;
     }
   }
 
