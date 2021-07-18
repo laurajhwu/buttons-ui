@@ -19,6 +19,7 @@ export default function IconBtnMain() {
 
   return (
     <Display
+      tag="iconbtn"
       title={
         <span id="iconbtn" onClick={pushTag}>
           <LinkIcon />
@@ -34,8 +35,9 @@ export default function IconBtnMain() {
       }
       code={() => (
         <code className="language-js">
-          {`import PlaceholderIcon from "../images/placeholder.svg";
-          ...
+          {`import {iconBtn} from "react-buttons-ui"
+          import PlaceholderIcon from "../images/placeholder.svg";
+
           //Customized Styles
             const theme = {
               \u00A0button: {

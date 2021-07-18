@@ -26,6 +26,7 @@ export default function Fullscreen() {
 
   return (
     <Display
+      tag="fullscreen"
       title={
         <span id="fullscreen" onClick={pushTag}>
           <LinkIcon />
@@ -44,8 +45,12 @@ export default function Fullscreen() {
         </>
       }
       code={() => (
-        <code className="language-js">
-          {`//Customized Styles
+        <code>
+          {`import {FullScreen} from "react-buttons-ui"
+          import PlaceholderIcon from "../images/placeholder.svg";
+          import CoffeeImg from "../images/coffee.jpg";
+
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",

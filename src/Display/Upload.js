@@ -31,6 +31,7 @@ export default function UploadBtn() {
   }
   return (
     <Display
+      tag="upload"
       title={
         <span id="upload" onClick={pushTag}>
           <LinkIcon />
@@ -39,12 +40,16 @@ export default function UploadBtn() {
       }
       description={
         <>
-          Upload Button constructed from html <code>&lt;input&gt;</code> tag
-          that accepts all or some file types - please refer{" "}
-          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">
+          Upload Button constructed from <code>&lt;input&gt;</code> tag that
+          accepts all or some file types - please refer{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers"
+            target="_blank"
+            rel="noreferrer"
+          >
             here
           </a>{" "}
-          for customization.
+          for more details.
           <br />
           <ul>
             <li>
@@ -56,13 +61,13 @@ export default function UploadBtn() {
             <li>
               <code>icon</code>, <code>text</code>, and <code>input</code>{" "}
               elements are wrapped within a <code>&lt;label&gt;</code> tag.{" "}
-              <code>input</code> display is set to <code>none</code> for styling
-              purposes.
+              <code>&lt;input&gt;</code> display is set to <code>none</code> for
+              styling purposes.
             </li>
             <br />
             <li>
-              <code>input</code> id is combined with a randomly generated unique
-              identifier for labeling precision.
+              <code>&lt;input&gt;</code> id is combined with a randomly
+              generated unique identifier for labeling precision.
             </li>
           </ul>
           <br />
@@ -70,7 +75,10 @@ export default function UploadBtn() {
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import {Upload} from "react-buttons-ui"
+          import PlaceholderIcon from "../images/placeholder.svg";
+
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",
@@ -110,13 +118,14 @@ export default function UploadBtn() {
       <File>
         File Name: <div>{fileName}</div>
       </File>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="1">
         Default
         <Upload
           text="Upload"
           iconEnd={PlaceholderIcon}
           theme={theme}
           onChange={handleOnChange}
+          ide="1"
         />
       </label>
       <label className="demo-label">

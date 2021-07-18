@@ -4,6 +4,7 @@ import { Link } from "@styled-icons/boxicons-regular";
 export const Article = styled.article`
   max-width: 1024px;
   margin: 0 auto;
+  position: relative;
   & code {
     padding: 0.2em 0.4em;
     margin: 0;
@@ -63,7 +64,8 @@ export const File = styled.div`
   width: 120px;
   margin-right: 20px;
   position: absolute;
-  left: 100px;
+  right: 50px;
+  top: 450px;
   background-color: #f7f7f7;
   padding: 20px;
   border-radius: 10px;

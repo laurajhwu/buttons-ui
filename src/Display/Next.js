@@ -24,6 +24,7 @@ export default function NextBtn() {
 
   return (
     <Display
+      tag="next"
       title={
         <span id="next" onClick={pushTag}>
           <LinkIcon />
@@ -38,7 +39,9 @@ export default function NextBtn() {
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import {Next} from "react-buttons-ui"
+         
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",
