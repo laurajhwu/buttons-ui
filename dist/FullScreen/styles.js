@@ -32,6 +32,6 @@ const Text = _styledComponents.default.span(_templateObject3 || (_templateObject
 
 exports.Text = Text;
 
-const Target = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  pointer-events: none;\n  ", "\n"])), props => _objectSpread({}, props.theme || {}));
+const Target = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  ", "\n"])), props => _objectSpread({}, props.theme || {}));
 
 exports.Target = Target;
