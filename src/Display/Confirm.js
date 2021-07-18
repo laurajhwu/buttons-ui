@@ -111,30 +111,31 @@ export default function ConfirmBtn() {
         </code>
       )}
     >
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="democ1">
         Size small
-        <Confirm text="Confirm" theme={theme} size="small" />
+        <Confirm text="Confirm" theme={theme} size="small" id="democ1" />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="democ2">
         Size medium (default)
-        <Confirm text="Confirm" theme={theme} size="medium" />
+        <Confirm text="Confirm" theme={theme} size="medium" id="democ2" />
       </label>
 
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="democ3">
         Size large
-        <Confirm text="Confirm" theme={theme} size="large" />
+        <Confirm text="Confirm" theme={theme} size="large" id="democ3" />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="democ4">
         Disabled
-        <Confirm text="Confirm" disabled={true} theme={theme} />
+        <Confirm text="Confirm" disabled={true} theme={theme} id="democ4" />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="democ5">
         Disabled on confirm
         <Confirm
           text="Confirm"
           theme={theme}
           disableOnConfirm={disableOnConfirm}
           onClick={handleOnClick}
+          id="democ5"
         />
       </label>
       {isReset && (

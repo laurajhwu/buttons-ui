@@ -67,7 +67,7 @@ export default function Fullscreen() {
         </code>
       )}
     >
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demof1">
         Default
         <FullScreen
           text="Full Screen"
@@ -76,9 +76,10 @@ export default function Fullscreen() {
           target={(ref) => (
             <img src={CoffeeImg} ref={ref} className="demo-image" />
           )}
+          id="demof1"
         />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demof2">
         Disabled
         <FullScreen
           text="Full Screen"
@@ -88,9 +89,10 @@ export default function Fullscreen() {
           target={(ref) => (
             <img src={CoffeeImg} ref={ref} className="demo-image" />
           )}
+          id="demof2"
         />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demof3">
         No Icon
         <FullScreen
           text="Full Screen"
@@ -99,6 +101,7 @@ export default function Fullscreen() {
           target={(ref) => (
             <img src={CoffeeImg} ref={ref} className="demo-image" />
           )}
+          id="demof3"
         />
       </label>
     </Display>

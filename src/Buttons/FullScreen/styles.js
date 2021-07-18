@@ -30,6 +30,5 @@ export const Text = styled.span`
 `;
 
 export const Target = styled.div`
-  pointer-events: none;
   ${(props) => ({ ...(props.theme || {}) })}
 `;
