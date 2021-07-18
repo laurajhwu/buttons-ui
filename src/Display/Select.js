@@ -1,6 +1,8 @@
 import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import Select from "../Buttons/Select";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   select: {
@@ -35,9 +37,17 @@ const options = [
 ];
 
 export default function UploadBtn() {
+  const pushTag = usePushTag("select");
+
   return (
     <Display
-      title="Select Button"
+      tag="select"
+      title={
+        <span id="select" onClick={pushTag}>
+          <LinkIcon />
+          Select Button
+        </span>
+      }
       description={
         <>
           Select Button that allows full customization, along with the following
@@ -46,15 +56,14 @@ export default function UploadBtn() {
           <ul>
             <li>
               <code>onSelect</code>: takes a callback and returns the{" "}
-              <code>value</code> property from the selected option as an
+              <code>value</code> property from the selected element as the
               argument.
             </li>
             <br />
             <li>
               <code>hideOnSelect</code>: default value is <code>true</code>.
               Setting the <code>false</code> prevents the selection dropdown
-              menu from closing after an option is selected. (must click button
-              to close)
+              menu from closing after an option is selected.
             </li>
             <br />
             <li>
@@ -67,18 +76,18 @@ export default function UploadBtn() {
               option is an object that contains the <code>content</code>{" "}
               property, which will be rendered on screen; <code>key</code>{" "}
               property, the key for React to render arrays; <code>value</code>{" "}
-              property, which is optional, for the html <code>value</code>{" "}
-              property in html <code>option</code>.
+              property, which is optional, for the <code>&lt;option&gt;</code>{" "}
+              <code>value</code> property.
               <br />
-              If no <code>value</code> property is passed, the default{" "}
-              <code>value</code> will be the <code>content</code>.
+              If no <code>value</code> is passed, the default <code>value</code>{" "}
+              will be the <code>content</code>.
             </li>
             <br />
             <li>
-              Optionally, you can also choose to pass down jsx children within
-              the <code>&lt;Select&gt;&lt;/Select&gt;</code>. We recommend
-              passing <code>&lt;option&gt;</code> or any html tag that accepts
-              the <code>value</code> property.
+              Optionally, you can also choose to pass down jsx children within{" "}
+              <code>&lt;Select&gt;&lt;/Select&gt;</code>. We recommend passing{" "}
+              <code>&lt;option&gt;</code> or any html tag that accepts the{" "}
+              <code>value</code> property.
             </li>
           </ul>
           <br />
@@ -86,7 +95,10 @@ export default function UploadBtn() {
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import {Select} from "react-buttons-ui"
+          import PlaceholderIcon from "../images/placeholder.svg";
+
+          //Customized Styles
             const theme = {
               \u00A0select: {
                 \u00A0\u00A0//select styles

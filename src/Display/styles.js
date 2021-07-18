@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { Link } from "@styled-icons/boxicons-regular";
 
 export const Article = styled.article`
   max-width: 1024px;
   margin: 0 auto;
+  position: relative;
   & code {
     padding: 0.2em 0.4em;
     margin: 0;
@@ -19,6 +21,12 @@ export const Title = styled.h2`
   padding-top: 24px;
   border-bottom: 1px solid #eaecef;
   border-top: 1px solid #eaecef;
+  &:hover {
+    cursor: pointer;
+    & * {
+      visibility: visible;
+    }
+  }
 `;
 
 export const Description = styled.div``;
@@ -56,11 +64,18 @@ export const File = styled.div`
   width: 120px;
   margin-right: 20px;
   position: absolute;
-  left: 100px;
+  right: 50px;
+  top: 450px;
   background-color: #f7f7f7;
   padding: 20px;
   border-radius: 10px;
   & > div {
     font-weight: 600;
   }
+`;
+
+export const LinkIcon = styled(Link)`
+  width: 20px;
+  visibility: hidden;
+  margin-right: 5px;
 `;

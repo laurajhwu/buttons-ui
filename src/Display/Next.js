@@ -1,5 +1,7 @@
 import Display from "./BaseDisplay";
 import Next from "../Buttons/Next";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -18,9 +20,17 @@ const theme = {
 };
 
 export default function NextBtn() {
+  const pushTag = usePushTag("next");
+
   return (
     <Display
-      title="Next Button"
+      tag="next"
+      title={
+        <span id="next" onClick={pushTag}>
+          <LinkIcon />
+          Next Button
+        </span>
+      }
       description={
         <>
           Simple next button with styled effects.
@@ -29,7 +39,9 @@ export default function NextBtn() {
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import {Next} from "react-buttons-ui"
+         
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",

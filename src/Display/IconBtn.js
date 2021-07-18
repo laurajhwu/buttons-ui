@@ -1,6 +1,8 @@
 import Display from "./BaseDisplay";
 import IconBtn from "../Buttons/IconBtn";
 import PlaceholderIcon from "../images/placeholder.svg";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -13,9 +15,17 @@ const theme = {
 };
 
 export default function IconBtnMain() {
+  const pushTag = usePushTag("iconbtn");
+
   return (
     <Display
-      title="Icon Button"
+      tag="iconbtn"
+      title={
+        <span id="iconbtn" onClick={pushTag}>
+          <LinkIcon />
+          Icon Button
+        </span>
+      }
       description={
         <>
           Button based on icons. Contains a <code>circle</code> property, that
@@ -25,8 +35,9 @@ export default function IconBtnMain() {
       }
       code={() => (
         <code className="language-js">
-          {`import PlaceholderIcon from "../images/placeholder.svg";
-          ...
+          {`import {iconBtn} from "react-buttons-ui"
+          import PlaceholderIcon from "../images/placeholder.svg";
+
           //Customized Styles
             const theme = {
               \u00A0button: {

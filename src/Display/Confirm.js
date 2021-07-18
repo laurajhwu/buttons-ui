@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Display from "./BaseDisplay";
 import Confirm from "../Buttons/Confirm";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -21,6 +23,7 @@ const theme = {
 export default function ConfirmBtn() {
   const [isReset, setIsReset] = useState(false);
   const [disableOnConfirm, setDisableOnConfirm] = useState(true);
+  const pushTag = usePushTag("confirm");
 
   function handleOnClick() {
     setIsReset(true);
@@ -34,7 +37,13 @@ export default function ConfirmBtn() {
 
   return (
     <Display
-      title="Confirm Button"
+      tag="confirm"
+      title={
+        <span id="confirm" onClick={pushTag}>
+          <LinkIcon />
+          Confirm Button
+        </span>
+      }
       description={
         <>
           Confirm button that consists of small, medium (default), and large
@@ -43,18 +52,18 @@ export default function ConfirmBtn() {
           <ul>
             <li>
               <code>size</code>: accepts values of <code>small</code>,{" "}
-              <code>medium</code>, <code>large</code>
+              <code>medium</code>, and <code>large</code>
             </li>
             <br />
             <li>
               <code>disableOnConfirm</code>: accepts a <code>boolean</code>{" "}
-              value. If <code>true</code>, the button will be disabled once
-              clicked to prevent multiple clicks.
+              value. If <code>true</code>, the button will be disabled to
+              prevent multiple clicks.
               <br />
               <br />
               Once <code>disableOnConfirm</code> is set to <code>false</code>,
               the button will become clickable again.
-              <strong>(try demo below)</strong>
+              <strong>(see demo below)</strong>
             </li>
             <br />
           </ul>
@@ -62,7 +71,10 @@ export default function ConfirmBtn() {
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import {useState} from "react"
+          import {Confirm} from "react-buttons-ui"
+          
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",

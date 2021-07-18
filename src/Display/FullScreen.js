@@ -2,6 +2,8 @@ import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import CoffeeImg from "../images/coffee.jpg";
 import FullScreen from "../Buttons/FullScreen";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -20,9 +22,17 @@ const theme = {
 };
 
 export default function Fullscreen() {
+  const pushTag = usePushTag("fullscreen");
+
   return (
     <Display
-      title="Full Screen Button"
+      tag="fullscreen"
+      title={
+        <span id="fullscreen" onClick={pushTag}>
+          <LinkIcon />
+          Full Screen Button
+        </span>
+      }
       description={
         <>
           Full Screen Button containing a <code>target</code> property that
@@ -35,8 +45,12 @@ export default function Fullscreen() {
         </>
       }
       code={() => (
-        <code className="language-js">
-          {`//Customized Styles
+        <code>
+          {`import {FullScreen} from "react-buttons-ui"
+          import PlaceholderIcon from "../images/placeholder.svg";
+          import CoffeeImg from "../images/coffee.jpg";
+
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",
