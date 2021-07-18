@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonBase } from "../../ButtonBase/styles";
+import { ButtonBase } from "../ButtonBase/styles";
 
 export const Button = styled(ButtonBase)`
   background-color: ${(props) => (props.disabled ? "#f7f7f7" : "#E5E5E5")};

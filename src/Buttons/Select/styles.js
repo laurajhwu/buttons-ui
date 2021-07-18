@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonBase } from "../../ButtonBase/styles";
+import { ButtonBase } from "../ButtonBase/styles";
 import { ArrowIosDownwardOutline } from "@styled-icons/evaicons-outline";
 
 export const Button = styled(ButtonBase)`
