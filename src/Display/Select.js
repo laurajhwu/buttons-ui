@@ -159,7 +159,7 @@ export default function UploadBtn() {
                   \u00A0\u00A0\u00A0</option>
                   \u00A0\u00A0\u00A0<option value="chinese" key="ch">
                     \u00A0\u00A0\u00A0\u00A0Chinese
-                  \u00A0\u00A0\u00A0/option>
+                  \u00A0\u00A0\u00A0</option>
                   \u00A0\u00A0\u00A0<option value="french" key="fr">
                     \u00A0\u00A0\u00A0\u00A0French
                   \u00A0\u00A0\u00A0</option>
