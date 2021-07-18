@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import uuid from "react-uuid";
 
 import { Button, Icon, Text, Select, Options, Arrow } from "./styles";
 
 export default function SelectBtn(props) {
-  // const id = uuid();
   const {
     disabled,
     defaultValue,
@@ -51,10 +49,6 @@ export default function SelectBtn(props) {
           .children || children[0].props.children
       );
     }
-
-    if (children) {
-    }
-    console.log(children);
 
     window.addEventListener("click", clickOutside);
 
