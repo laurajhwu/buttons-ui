@@ -24,7 +24,8 @@ function Confirm(props) {
     theme,
     size,
     disableOnConfirm,
-    onClick
+    onClick,
+    children
   } = props;
   const [disableConfirm, setDisableConfirm] = (0, _react.useState)(false);
 
@@ -49,7 +50,7 @@ function Confirm(props) {
     type: "start"
   }), /*#__PURE__*/_react.default.createElement(_styles.Text, {
     theme: theme === null || theme === void 0 ? void 0 : theme.text
-  }, text), iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
+  }, text), children, iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
     src: iconEnd,
     theme: theme === null || theme === void 0 ? void 0 : theme.icon,
     type: "end"

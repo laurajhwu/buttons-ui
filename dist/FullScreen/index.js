@@ -22,7 +22,8 @@ function FullScreen(props) {
     iconEnd,
     iconStart,
     theme,
-    target
+    target,
+    children
   } = props;
   const targetRef = (0, _react.useRef)();
 
@@ -38,7 +39,7 @@ function FullScreen(props) {
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles.Target, {
     theme: theme === null || theme === void 0 ? void 0 : theme.target
-  }, target(targetRef)), /*#__PURE__*/_react.default.createElement(_styles.Button, {
+  }, target && target(targetRef)), /*#__PURE__*/_react.default.createElement(_styles.Button, {
     theme: theme === null || theme === void 0 ? void 0 : theme.button,
     disabled: disabled,
     onClick: handleFullScreen
@@ -48,7 +49,7 @@ function FullScreen(props) {
     type: "start"
   }), /*#__PURE__*/_react.default.createElement(_styles.Text, {
     theme: theme === null || theme === void 0 ? void 0 : theme.text
-  }, text), iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
+  }, text), children, iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
     src: iconEnd,
     theme: theme === null || theme === void 0 ? void 0 : theme.icon,
     type: "end"

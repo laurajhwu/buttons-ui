@@ -24,7 +24,8 @@ function SelectBtn(props) {
     theme,
     onSelect,
     options,
-    hideOnSelect
+    hideOnSelect,
+    children
   } = props;
   const [value, setValue] = (0, _react.useState)();
   const [show, setShow] = (0, _react.useState)(false);
@@ -66,7 +67,7 @@ function SelectBtn(props) {
     type: "start"
   }), /*#__PURE__*/_react.default.createElement(_styles.Text, {
     theme: theme === null || theme === void 0 ? void 0 : theme.text
-  }, value), iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
+  }, value), children, iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
     src: iconEnd,
     theme: theme === null || theme === void 0 ? void 0 : theme.icon,
     type: "end"
@@ -75,7 +76,7 @@ function SelectBtn(props) {
   })), /*#__PURE__*/_react.default.createElement(_styles.Options, {
     theme: theme === null || theme === void 0 ? void 0 : theme.options,
     show: show
-  }, options.map(opt => /*#__PURE__*/_react.default.createElement("option", {
+  }, options && options.map(opt => /*#__PURE__*/_react.default.createElement("option", {
     value: opt.value || opt.content,
     key: opt.key,
     onClick: handleSelect

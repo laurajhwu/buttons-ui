@@ -16,7 +16,8 @@ function IconBtn(props) {
     disabled,
     icon,
     theme,
-    circle
+    circle,
+    children
   } = props;
   return /*#__PURE__*/_react.default.createElement(_styles.Button, {
     theme: theme === null || theme === void 0 ? void 0 : theme.button,
@@ -25,5 +26,5 @@ function IconBtn(props) {
   }, icon && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
     src: icon,
     theme: theme === null || theme === void 0 ? void 0 : theme.icon
-  }));
+  }), children);
 }
