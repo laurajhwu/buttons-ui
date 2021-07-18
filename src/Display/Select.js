@@ -1,6 +1,8 @@
 import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import Select from "../Buttons/Select";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   select: {
@@ -35,9 +37,16 @@ const options = [
 ];
 
 export default function UploadBtn() {
+  const pushTag = usePushTag("select");
+
   return (
     <Display
-      title="Select Button"
+      title={
+        <span id="select" onClick={pushTag}>
+          <LinkIcon />
+          Select Button
+        </span>
+      }
       description={
         <>
           Select Button that allows full customization, along with the following

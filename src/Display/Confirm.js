@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Display from "./BaseDisplay";
 import Confirm from "../Buttons/Confirm";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -21,6 +23,7 @@ const theme = {
 export default function ConfirmBtn() {
   const [isReset, setIsReset] = useState(false);
   const [disableOnConfirm, setDisableOnConfirm] = useState(true);
+  const pushTag = usePushTag("confirm");
 
   function handleOnClick() {
     setIsReset(true);
@@ -34,7 +37,12 @@ export default function ConfirmBtn() {
 
   return (
     <Display
-      title="Confirm Button"
+      title={
+        <span id="confirm" onClick={pushTag}>
+          <LinkIcon />
+          Confirm Button
+        </span>
+      }
       description={
         <>
           Confirm button that consists of small, medium (default), and large
@@ -62,7 +70,8 @@ export default function ConfirmBtn() {
       }
       code={() => (
         <code className="language-js">
-          {`//Customized Styles
+          {`import {Confirm} from "react-buttons-ui"
+          //Customized Styles
             const theme = {
               \u00A0button: {
                 \u00A0\u00A0marginTop: "10px",

@@ -3,6 +3,8 @@ import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import Upload from "../Buttons/Upload";
 import { File } from "./styles";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -22,13 +24,19 @@ const theme = {
 
 export default function UploadBtn() {
   const [fileName, setFileName] = useState("");
+  const pushTag = usePushTag("upload");
 
   function handleOnChange(file) {
     setFileName(file.name);
   }
   return (
     <Display
-      title="Upload Button"
+      title={
+        <span id="upload" onClick={pushTag}>
+          <LinkIcon />
+          Upload Button
+        </span>
+      }
       description={
         <>
           Upload Button constructed from html <code>&lt;input&gt;</code> tag

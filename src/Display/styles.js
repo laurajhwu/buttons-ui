@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "@styled-icons/boxicons-regular";
 
 export const Article = styled.article`
   max-width: 1024px;
@@ -19,6 +20,12 @@ export const Title = styled.h2`
   padding-top: 24px;
   border-bottom: 1px solid #eaecef;
   border-top: 1px solid #eaecef;
+  &:hover {
+    cursor: pointer;
+    & * {
+      visibility: visible;
+    }
+  }
 `;
 
 export const Description = styled.div``;
@@ -63,4 +70,10 @@ export const File = styled.div`
   & > div {
     font-weight: 600;
   }
+`;
+
+export const LinkIcon = styled(Link)`
+  width: 20px;
+  visibility: hidden;
+  margin-right: 5px;
 `;

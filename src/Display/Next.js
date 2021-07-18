@@ -1,5 +1,7 @@
 import Display from "./BaseDisplay";
 import Next from "../Buttons/Next";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -18,9 +20,16 @@ const theme = {
 };
 
 export default function NextBtn() {
+  const pushTag = usePushTag("next");
+
   return (
     <Display
-      title="Next Button"
+      title={
+        <span id="next" onClick={pushTag}>
+          <LinkIcon />
+          Next Button
+        </span>
+      }
       description={
         <>
           Simple next button with styled effects.

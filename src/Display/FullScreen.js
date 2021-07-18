@@ -2,6 +2,8 @@ import Display from "./BaseDisplay";
 import PlaceholderIcon from "../images/placeholder.svg";
 import CoffeeImg from "../images/coffee.jpg";
 import FullScreen from "../Buttons/FullScreen";
+import { LinkIcon } from "./styles";
+import usePushTag from "./hooks/usePushTag";
 
 const theme = {
   button: {
@@ -20,9 +22,16 @@ const theme = {
 };
 
 export default function Fullscreen() {
+  const pushTag = usePushTag("fullscreen");
+
   return (
     <Display
-      title="Full Screen Button"
+      title={
+        <span id="fullscreen" onClick={pushTag}>
+          <LinkIcon />
+          Full Screen Button
+        </span>
+      }
       description={
         <>
           Full Screen Button containing a <code>target</code> property that
