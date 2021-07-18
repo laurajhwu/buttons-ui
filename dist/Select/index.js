@@ -15,7 +15,9 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+// import uuid from "react-uuid";
 function SelectBtn(props) {
+  // const id = uuid();
   const {
     disabled,
     defaultValue,
@@ -33,7 +35,7 @@ function SelectBtn(props) {
   function handleSelect(event) {
     setValue(event.target.innerHTML);
 
-    if (!hideOnSelect && hideOnSelect !== undefined) {
+    if (hideOnSelect || hideOnSelect === undefined) {
       setShow(false);
     }
   }
@@ -43,12 +45,30 @@ function SelectBtn(props) {
     setShow(!show);
   }
 
+  function clickOutside(event) {
+    if (!event.target.closest(".react-buttons-ui-select")) {
+      setShow(false);
+    }
+  }
+
   (0, _react.useEffect)(() => {
     if (options) {
       var _options$find;
 
       setValue(((_options$find = options.find(option => defaultValue === option.value || defaultValue === option.content)) === null || _options$find === void 0 ? void 0 : _options$find.content) || options[0].content);
+    } else if (children) {
+      var _children$find;
+
+      setValue(((_children$find = children.find(option => defaultValue === option.props.value)) === null || _children$find === void 0 ? void 0 : _children$find.props.children) || children[0].props.children);
     }
+
+    if (children) {}
+
+    console.log(children);
+    window.addEventListener("click", clickOutside);
+    return () => {
+      window.removeEventListener("click", clickOutside);
+    };
   }, []);
   (0, _react.useEffect)(() => {
     if (onSelect) {
@@ -56,7 +76,8 @@ function SelectBtn(props) {
     }
   }, [value]);
   return /*#__PURE__*/_react.default.createElement(_styles.Select, {
-    theme: theme === null || theme === void 0 ? void 0 : theme.select
+    theme: theme === null || theme === void 0 ? void 0 : theme.select,
+    className: "react-buttons-ui-select"
   }, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     theme: theme === null || theme === void 0 ? void 0 : theme.button,
     disabled: disabled,
@@ -67,7 +88,7 @@ function SelectBtn(props) {
     type: "start"
   }), /*#__PURE__*/_react.default.createElement(_styles.Text, {
     theme: theme === null || theme === void 0 ? void 0 : theme.text
-  }, value), children, iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
+  }, value), iconEnd && /*#__PURE__*/_react.default.createElement(_styles.Icon, {
     src: iconEnd,
     theme: theme === null || theme === void 0 ? void 0 : theme.icon,
     type: "end"
@@ -76,7 +97,9 @@ function SelectBtn(props) {
   })), /*#__PURE__*/_react.default.createElement(_styles.Options, {
     theme: theme === null || theme === void 0 ? void 0 : theme.options,
     show: show
-  }, options && options.map(opt => /*#__PURE__*/_react.default.createElement("option", {
+  }, (children === null || children === void 0 ? void 0 : children.map(element => /*#__PURE__*/_react.default.cloneElement(element, {
+    onClick: handleSelect
+  }))) || options && options.map(opt => /*#__PURE__*/_react.default.createElement("option", {
     value: opt.value || opt.content,
     key: opt.key,
     onClick: handleSelect
