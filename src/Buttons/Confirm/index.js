@@ -12,6 +12,7 @@ export default function Confirm(props) {
     size,
     disableOnConfirm,
     onClick,
+    children,
   } = props;
   const [disableConfirm, setDisableConfirm] = useState(false);
 
@@ -35,6 +36,7 @@ export default function Confirm(props) {
     >
       {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
       <Text theme={theme?.text}>{text}</Text>
+      {children}
       {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
       {size !== "small" && <Arrow theme={theme?.arrow} />}
     </Button>

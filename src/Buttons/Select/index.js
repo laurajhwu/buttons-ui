@@ -12,6 +12,7 @@ export default function SelectBtn(props) {
     onSelect,
     options,
     hideOnSelect,
+    children,
   } = props;
   const [value, setValue] = useState();
   const [show, setShow] = useState(false);
@@ -54,19 +55,21 @@ export default function SelectBtn(props) {
       >
         {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
         <Text theme={theme?.text}>{value}</Text>
+        {children}
         {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
         <Arrow theme={theme?.arrow} />
       </Button>
       <Options theme={theme?.options} show={show}>
-        {options.map((opt) => (
-          <option
-            value={opt.value || opt.content}
-            key={opt.key}
-            onClick={handleSelect}
-          >
-            {opt.content}
-          </option>
-        ))}
+        {options &&
+          options.map((opt) => (
+            <option
+              value={opt.value || opt.content}
+              key={opt.key}
+              onClick={handleSelect}
+            >
+              {opt.content}
+            </option>
+          ))}
       </Options>
     </Select>
   );

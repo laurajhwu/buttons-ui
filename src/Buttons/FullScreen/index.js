@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { Button, Icon, Text, Target } from "./styles";
 
 export default function FullScreen(props) {
-  const { disabled, text, iconEnd, iconStart, theme, target } = props;
+  const { disabled, text, iconEnd, iconStart, theme, target, children } = props;
   const targetRef = useRef();
 
   function handleFullScreen() {
@@ -18,7 +18,7 @@ export default function FullScreen(props) {
 
   return (
     <>
-      <Target theme={theme?.target}>{target(targetRef)}</Target>
+      <Target theme={theme?.target}>{target && target(targetRef)}</Target>
       <Button
         theme={theme?.button}
         disabled={disabled}
@@ -26,6 +26,7 @@ export default function FullScreen(props) {
       >
         {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
         <Text theme={theme?.text}>{text}</Text>
+        {children}
         {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
       </Button>
     </>
