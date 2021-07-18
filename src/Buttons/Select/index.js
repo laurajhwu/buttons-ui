@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+// import uuid from "react-uuid";
 
 import { Button, Icon, Text, Select, Options, Arrow } from "./styles";
 
 export default function SelectBtn(props) {
+  // const id = uuid();
   const {
     disabled,
     defaultValue,
@@ -19,7 +21,7 @@ export default function SelectBtn(props) {
 
   function handleSelect(event) {
     setValue(event.target.innerHTML);
-    if (!hideOnSelect && hideOnSelect !== undefined) {
+    if (hideOnSelect || hideOnSelect === undefined) {
       setShow(false);
     }
   }
@@ -27,6 +29,12 @@ export default function SelectBtn(props) {
   function handleClickButton(event) {
     event.stopPropagation();
     setShow(!show);
+  }
+
+  function clickOutside(event) {
+    if (!event.target.closest(".react-buttons-ui-select")) {
+      setShow(false);
+    }
   }
 
   useEffect(() => {
@@ -37,7 +45,22 @@ export default function SelectBtn(props) {
             defaultValue === option.value || defaultValue === option.content
         )?.content || options[0].content
       );
+    } else if (children) {
+      setValue(
+        children.find((option) => defaultValue === option.props.value)?.props
+          .children || children[0].props.children
+      );
     }
+
+    if (children) {
+    }
+    console.log(children);
+
+    window.addEventListener("click", clickOutside);
+
+    return () => {
+      window.removeEventListener("click", clickOutside);
+    };
   }, []);
 
   useEffect(() => {
@@ -47,7 +70,7 @@ export default function SelectBtn(props) {
   }, [value]);
 
   return (
-    <Select theme={theme?.select}>
+    <Select theme={theme?.select} className="react-buttons-ui-select">
       <Button
         theme={theme?.button}
         disabled={disabled}
@@ -55,21 +78,23 @@ export default function SelectBtn(props) {
       >
         {iconStart && <Icon src={iconStart} theme={theme?.icon} type="start" />}
         <Text theme={theme?.text}>{value}</Text>
-        {children}
         {iconEnd && <Icon src={iconEnd} theme={theme?.icon} type="end" />}
         <Arrow theme={theme?.arrow} />
       </Button>
       <Options theme={theme?.options} show={show}>
-        {options &&
-          options.map((opt) => (
-            <option
-              value={opt.value || opt.content}
-              key={opt.key}
-              onClick={handleSelect}
-            >
-              {opt.content}
-            </option>
-          ))}
+        {children?.map((element) =>
+          React.cloneElement(element, { onClick: handleSelect })
+        ) ||
+          (options &&
+            options.map((opt) => (
+              <option
+                value={opt.value || opt.content}
+                key={opt.key}
+                onClick={handleSelect}
+              >
+                {opt.content}
+              </option>
+            )))}
       </Options>
     </Select>
   );

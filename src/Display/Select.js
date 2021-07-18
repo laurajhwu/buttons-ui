@@ -73,6 +73,13 @@ export default function UploadBtn() {
               If no <code>value</code> property is passed, the default{" "}
               <code>value</code> will be the <code>content</code>.
             </li>
+            <br />
+            <li>
+              Optionally, you can also choose to pass down jsx children within
+              the <code>&lt;Select&gt;&lt;/Select&gt;</code>. We recommend
+              passing <code>&lt;option&gt;</code> or any html tag that accepts
+              the <code>value</code> property.
+            </li>
           </ul>
           <br />
         </>
@@ -114,73 +121,119 @@ export default function UploadBtn() {
             ...
             //Render Button
             return (
-              \u00A0<label className="demo-label">
+              \u00A0<label className="demo-label" htmlFor="demo1">
                 \u00A0\u00A0Default Settings
-                \u00A0\u00A0<Select iconStart={PlaceholderIcon} theme={theme} options={options} />
+                \u00A0\u00A0<Select iconStart={PlaceholderIcon} theme={theme} options={options} id="demo1" />
               \u00A0</label>
 
-              \u00A0<label className="demo-label">
+              \u00A0<label className="demo-label" htmlFor="demo2">
                 \u00A0\u00A0No auto hide
                 \u00A0\u00A0<Select
                   \u00A0\u00A0\u00A0iconStart={PlaceholderIcon}
                   \u00A0\u00A0\u00A0theme={theme}
                   \u00A0\u00A0\u00A0options={options}
                   \u00A0\u00A0\u00A0hideOnSelect={false}
+                  \u00A0\u00A0\u00A0id="demo2"
                 \u00A0\u00A0/>
               \u00A0</label>
 
-              \u00A0<label className="demo-label">
+              \u00A0<label className="demo-label" htmlFor="demo3">
                 \u00A0\u00A0Set default value
                 \u00A0\u00A0<Select
                   \u00A0\u00A0\u00A0iconStart={PlaceholderIcon}
                   \u00A0\u00A0\u00A0theme={theme}
                   \u00A0\u00A0\u00A0options={options}
                   \u00A0\u00A0\u00A0defaultValue="chinese"
+                  \u00A0\u00A0\u00A0id="demo3"
                 \u00A0\u00A0/>
               \u00A0</label>
 
-               \u00A0<label className="demo-label">
+              \u00A0<label className="demo-label" htmlFor="demo4">
+                \u00A0\u00A0Options as children
+                \u00A0\u00A0<Select iconStart={PlaceholderIcon} theme={theme} \u00A0\u00A0id="demo4">
+                  \u00A0\u00A0\u00A0<option value="customize" key="all">
+                    \u00A0\u00A0\u00A0\u00A0Language
+                  \u00A0\u00A0\u00A0</option>
+                  \u00A0\u00A0\u00A0<option value="english" key="eng">
+                    \u00A0\u00A0\u00A0\u00A0English
+                  \u00A0\u00A0\u00A0</option>
+                  \u00A0\u00A0\u00A0<option value="chinese" key="ch">
+                    \u00A0\u00A0\u00A0\u00A0Chinese
+                  \u00A0\u00A0\u00A0/option>
+                  \u00A0\u00A0\u00A0<option value="french" key="fr">
+                    \u00A0\u00A0\u00A0\u00A0French
+                  \u00A0\u00A0\u00A0</option>
+                \u00A0\u00A0</Select>
+              \u00A0</label>
+
+               \u00A0<label className="demo-label" htmlFor="demo5">
                 \u00A0\u00A0Disabled
                 \u00A0\u00A0<Select
                   \u00A0\u00A0\u00A0iconStart={PlaceholderIcon}
                   \u00A0\u00A0\u00A0theme={theme}
                   \u00A0\u00A0\u00A0options={options}
                   \u00A0\u00A0\u00A0disabled={true}
+                  \u00A0\u00A0\u00A0id="demo5"
                 \u00A0\u00A0/>
               \u00A0</label>
           );`}
         </code>
       )}
     >
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demo1">
         Default Settings
-        <Select iconStart={PlaceholderIcon} theme={theme} options={options} />
+        <Select
+          iconStart={PlaceholderIcon}
+          theme={theme}
+          options={options}
+          id="demo1"
+        />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demo2">
         No auto hide
         <Select
           iconStart={PlaceholderIcon}
           theme={theme}
           options={options}
           hideOnSelect={false}
+          id="demo2"
         />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demo3">
         Set default value
         <Select
           defaultValue="chinese"
           iconStart={PlaceholderIcon}
           theme={theme}
           options={options}
+          id="demo3"
         />
       </label>
-      <label className="demo-label">
+      <label className="demo-label" htmlFor="demo4">
+        Options as children
+        <Select iconStart={PlaceholderIcon} theme={theme} id="demo4">
+          <option value="customize" key="all">
+            Language
+          </option>
+          <option value="english" key="eng">
+            English
+          </option>
+          <option value="chinese" key="ch">
+            Chinese
+          </option>
+          <option value="french" key="fr">
+            French
+          </option>
+        </Select>
+      </label>
+      <label className="demo-label" htmlFor="demo5">
         Disabled
         <Select
           iconStart={PlaceholderIcon}
           disabled={true}
           theme={theme}
           options={options}
+          id="demo5"
         />
       </label>
     </Display>

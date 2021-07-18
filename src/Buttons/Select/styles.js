@@ -70,6 +70,7 @@ export const Options = styled.div`
   top: 100%;
   max-height: 120px;
   overflow: auto;
+  z-index: 2;
   &::-webkit-scrollbar {
     display: none;
   }
